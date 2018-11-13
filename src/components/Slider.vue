@@ -63,6 +63,9 @@ export default {
 <style scoped lang="less">
 .slider {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 50px 0;
 }
 
@@ -73,21 +76,19 @@ export default {
 }
 
 .slider__block {
-  content: '';
   position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 60vw;
-  height: 945px;
+  height: 95vh;
   background-color: #fedfc1;
+  padding-bottom: 5vh;
 }
 
 .slider__slide {
   position: absolute;
   width: 25%;
-  margin-top: 0px;
-  opacity: 0.5;
 
   .slider__slide-title {
     display: none;
@@ -96,7 +97,6 @@ export default {
   &:nth-child(1) {
     opacity: 1;
     width: 100%;
-    filter: grayscale(0%);
     .slider__slide-title {
       display: block;
     }
@@ -106,16 +106,26 @@ export default {
     }
 
     > img {
+      display: inline-block;
+      filter: grayscale(0%);
       width: 35%;
     }
   }
 
   &:nth-child(2) {
     right: -12.5%;
+    mix-blend-mode: multiply;
   }
 
   &:last-child {
     right: 87.5%;
+    mix-blend-mode: multiply;
+    margin-bottom: 50
+  }
+
+  img {
+    display: block;
+    filter: grayscale(100%);
   }
 }
 
@@ -126,7 +136,6 @@ export default {
   font-size: 12px;
   letter-spacing: 4px;
   position: absolute;
-  top: 50%;
   left: 50px;
   transform: rotateZ(-90deg);
   z-index: 1;
@@ -138,7 +147,7 @@ export default {
   font-size: 12px;
   letter-spacing: 4px;
   position: absolute;
-  top: 45%;
+
   right: 50px;
   transform: rotateZ(-90deg);
   z-index: 1;
@@ -148,7 +157,7 @@ export default {
   position: absolute;
   left: 0px;
   right: 0px;
-  top: -35px;
+  top: 15px;
   font-size: 50px;
   text-align: center;
   letter-spacing: 20px;
@@ -157,7 +166,8 @@ export default {
 }
 
 .slider__slide-title {
-  position: relative;
+  position: absolute;
+  left: 0; right: 0;
   margin-top: 20px;
   z-index: 1;
 }
